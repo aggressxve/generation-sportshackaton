@@ -44,6 +44,11 @@ Sección de productos, sus botones filtro, Titular y descripcion.
     transform: translateY(-3px);
 }
 
+.sport-button.active-filter {
+    background-color: #97fb57;
+    color: #121212;
+}
+
 /* Contenedor de los productos: grid y cards*/
 
 .products-container {
