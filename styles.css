@@ -1,0 +1,169 @@
+
+/*
+Sección de productos, sus botones filtro, Titular y descripcion.
+*/
+.products-section {
+    background-color: #121212;
+    color: #f6f2f2;
+    padding: 60px 8%;
+}
+
+.products-header{
+    text-align: center;
+}
+.products-header h2{
+    font-size: 2.5rem;
+    color: #97fb57;
+    margin-bottom: 10px;
+}
+.products-header p{
+    color: #f6f2f2;
+    font-size: 1.1rem;
+}
+
+.sports-filter{
+    text-align: center;
+    margin: 40px;
+}
+
+.sport-button{
+    background-color: transparent;
+    color: #f6f2f2;
+    border: 2px solid #97fb57;
+    border-radius: 25px;
+    padding: 10px 22px;
+    margin: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.sport-button:hover{
+    background-color: #97fb57;
+    color: #121212;
+    transform: translateY(-3px);
+}
+
+.sport-button.active-filter {
+    background-color: #97fb57;
+    color: #121212;
+}
+
+/* Contenedor de los productos: grid y cards*/
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product-card{
+    position: relative;
+    background-color: #f6f2f2;
+    color: #121212;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 18px;
+    padding-bottom: 40px;
+    min-height: 420px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(151, 251, 87, 0.25);
+}
+
+.product-image {
+    width: 100%;
+    height: 190px;
+    background-color: #909090;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info h3{
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+/*
+.product-price {
+    color: #97fb57;
+    background-color: #121212;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}*/
+
+.product-description{
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.add-product-button {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background-color: #97fb57;
+    color: #121212;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add-product-button:hover{
+    background-color: #121212;
+    color: #97fb57;
+    border: 2px solid #97fb57;
+}
+
+@media (max-width: 1100px) {
+    .products-container {
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .products-container {
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-header h2 {
+    font-size: 2rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .products-section {
+    padding: 40px 5%;
+    }
+
+    .products-container {
+    grid-template-columns: 1fr;
+    }
+
+    .sport-button {
+    width: 100%;
+    margin: 6px 0;
+    }
+
+    .product-card {
+    min-height: 390px;
+    }
+}
