@@ -250,6 +250,7 @@ nav svg{
     width: 180px;
     height: 45px;
     object-fit: contain;
+}
 
 /*
 Sección de productos, sus botones filtro, Titular y descripcion.
@@ -418,4 +419,148 @@ Sección de productos, sus botones filtro, Titular y descripcion.
     .product-card {
     min-height: 390px;
     }
+
+    
+}
+/* Hero Carousel */
+.hero-carousel{
+    position: relative;
+    width: 92%;
+    max-width: 1300px;
+    margin: 40px auto;
+    height: 550px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.hero-slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.hero-slide.active{
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55);
+}
+
+.hero-overlay{
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    max-width: 500px;
+    color: #f6f2f2;
+    z-index: 2;
+}
+
+.hero-overlay h2{
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.hero-overlay p{
+    font-size: 1.1rem;
+    color: #f6f2f2;
+    margin-bottom: 25px;
+}
+
+.hero-btn{
+    display: inline-block;
+    background-color: #97fb57;
+    color: #121212;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover{
+    background-color: #121212;
+    color: #97fb57;
+    border: 2px solid #97fb57;
+    transform: translateY(-3px);
+}
+
+.carousel-arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #f6f2f2;
+    border: 2px solid #97fb57;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 3;
+    transition: 0.3s ease;
+}
+
+.carousel-arrow:hover{
+    background-color: #97fb57;
+    color: #121212;
+}
+
+.carousel-arrow.prev{ left: 20px; }
+.carousel-arrow.next{ right: 20px; }
+
+.carousel-dots{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.carousel-dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #909090;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.carousel-dot.active{
+    background-color: #97fb57;
+    width: 30px;
+    border-radius: 6px;
+}
+
+@media (max-width: 800px){
+    .hero-carousel{ 
+        height: 420px; 
+        width: 94%;
+        margin: 25px auto;
+        border-radius: 14px;
+    }
+    .hero-overlay{ left: 6%; max-width: 90%; }
+    .hero-overlay h2{ font-size: 2rem; }
+    .hero-overlay p{ font-size: 1rem; }
+    .carousel-arrow{ width: 38px; height: 38px; }
+}
+
+@media (max-width: 500px){
+    .hero-carousel{ 
+        height: 350px; 
+        margin: 20px auto;
+    }
+    .hero-overlay h2{ font-size: 1.5rem; }
 }
