@@ -5,7 +5,7 @@
 }
 body{
     min-height: 100vh;
-    background-image: url(https://cdn.pixabay.com/photo/2015/12/16/15/32/energy-1096119_1280.jpg);
+    background-color:#121212; 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -167,4 +167,87 @@ nav svg{
 }
 .nav-left, .nav-center, .nav-right{
     width: auto;
+}
+
+
+.nosotros{
+    padding: 60px 40px;
+}
+
+.nosotros-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.nosotros-img{
+    flex: 1;
+    min-width: 280px;
+}
+
+.nosotros-img img{
+    width: 100%;
+    border-radius: 12px;
+}
+
+.nosotros-texto{
+    flex: 1;
+    min-width: 280px;
+}
+
+.nosotros-texto h2{
+    color: #f6f2f2;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.nosotros-subtitulo{
+    color: #97fb57 !important;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 20px !important;
+}
+
+.nosotros-texto p{
+    color: #909090;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.nosotros-texto strong{
+    color: #f6f2f2;
+}
+
+.nosotros-final{
+    color: #97fb57 !important;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.nosotros-btn{
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 28px;
+    background-color: #97fb57;
+    color: #121212;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.nosotros-btn:hover{
+    background-color: #121212;
+    color: #97fb57;
+}
+.nav-left a{
+    padding: 0 10px;
+}
+
+.nav-left img{
+    width: 180px;
+    height: 45px;
+    object-fit: contain;
 }
