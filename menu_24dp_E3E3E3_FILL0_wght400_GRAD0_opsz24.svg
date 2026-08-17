@@ -20,6 +20,7 @@
       <li><a href="#">Contacto</a></li>
     </ul>
 
+    <!-- Nuevo contenedor: 3 grupos (izq / centro / der) -->
     <div class="nav-container">
       <ul class="nav-left">
         <li><a href="#">logo</a></li>
@@ -44,7 +45,7 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-col">
-        <h3>Nombree</h3>
+        <h3>SportZone</h3>
         <p>Tu tienda de artículos deportivos: ropa, calzado y equipo para llevar tu rendimiento al siguiente nivel.</p>
       </div>
       <div class="footer-col">
@@ -62,7 +63,7 @@
         <ul>
           <li>Av. Deportiva 123, CDMX</li>
           <li>Tel: 55 1234 5678</li>
-          <li>contacto@nombree.com</li>
+          <li>contacto@sportzone.com</li>
         </ul>
       </div>
       <div class="footer-col">
@@ -75,7 +76,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Nombree. Todos los derechos reservados.</p>
+      <p>&copy; 2026 SportZone. Todos los derechos reservados.</p>
     </div>
   </footer>
 
