@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -45,6 +44,20 @@
       </ul>
 
       <ul class="nav-right">
+        <!-- Carrito: queda visible siempre (desktop y mobile), no depende de "hideOnMobile" -->
+        <li>
+          <a href="#" class="cart-btn" id="cartLink" aria-label="Carrito">
+            <span class="cart-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/>
+              </svg>
+              <span class="cart-badge" id="cartBadge">0</span>
+            </span>
+          </a>
+        </li>
+
         <li class="menu-button" onclick="showSidebar()">
           <a href="#">
             <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
@@ -54,32 +67,16 @@
         </li>
       </ul>
     </div>
+
+    <!-- Línea verde del carrito: vive DENTRO del nav (position:relative) para que
+         la franja de abajo del navbar sea su punto de referencia. Ver script al final
+         y la explicación en el chat para el detalle de cómo se dispara. -->
+    <div class="cart-pulse-wrap" id="cartPulseWrap">
+      <div class="cart-pulse"></div>
+    </div>
   </nav>
 
 
-<section id="nosotros" class="nosotros">
-  <div class="nosotros-container">
-    <div class="nosotros-img">
-      <img src="https://images.unsplash.com/photo-1637666532931-b835a227b955?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Equipo SportZone">
-    </div>
-
-    <div class="nosotros-texto">
-      <h2>Sobre Nosotros</h2>
-
-      <p class="nosotros-subtitulo">
-        Vive el deporte a tu manera
-      </p>
-
-      <p>
-        Creemos que el deporte es diferente para cada persona. Para algunos es un reto, para otros una forma de desconectar, sentirse bien o compartir momentos.
-      </p>
-
-      <p>
-        Por eso <strong>SYNAPSE</strong> es un espacio donde puedes encontrar productos para diferentes disciplinas, estilos y necesidades. Seleccionamos opciones que combinan calidad, funcionalidad y estilo para acompañarte en cada desafío.
-      </p>
-    </div>
-  </div>
-</section>
     <!-- Navbar -->
     <!-- Carrusel -->
     <!-- Productos -->
@@ -97,6 +94,32 @@
 
         <div class="products-container" id="products-container"></div>
     </section>
+
+    <!-- "Nosotros" ahora va aquí, justo antes del footer -->
+    <section id="nosotros" class="nosotros">
+      <div class="nosotros-container">
+        <div class="nosotros-img">
+          <img src="https://images.unsplash.com/photo-1637666532931-b835a227b955?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Equipo SportZone">
+        </div>
+
+        <div class="nosotros-texto">
+          <h2>Sobre Nosotros</h2>
+
+          <p class="nosotros-subtitulo">
+            Vive el deporte a tu manera
+          </p>
+
+          <p>
+            Creemos que el deporte es diferente para cada persona. Para algunos es un reto, para otros una forma de desconectar, sentirse bien o compartir momentos.
+          </p>
+
+          <p>
+            Por eso <strong>SYNAPSE</strong> es un espacio donde puedes encontrar productos para diferentes disciplinas, estilos y necesidades. Seleccionamos opciones que combinan calidad, funcionalidad y estilo para acompañarte en cada desafío.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
 
 
@@ -158,8 +181,40 @@
       const sidebar = document.querySelector('.sidebar')
       sidebar.style.display = 'none'
     }
+
+    /* ===================== CARRITO: línea verde + badge ===================== */
+
+    const cartPulseWrap = document.getElementById('cartPulseWrap');
+    const cartBadge = document.getElementById('cartBadge');
+    let cartCount = 0;
+
+    // Dispara la animación de la línea y hace "brincar" el número del carrito.
+    function pulseCart(){
+      cartCount++;
+      cartBadge.textContent = cartCount;
+
+      // quitar la clase, forzar reflow y volver a ponerla permite repetir
+      // la animación aunque se añadan varios productos muy seguido
+      cartPulseWrap.classList.remove('is-active');
+      void cartPulseWrap.offsetWidth;
+      cartPulseWrap.classList.add('is-active');
+
+      cartBadge.classList.remove('bump');
+      void cartBadge.offsetWidth;
+      cartBadge.classList.add('bump');
+    }
+
+    // Delegación de eventos: como las tarjetas de producto (y sus botones "+")
+    // las crea products.js de forma dinámica, no podemos poner un addEventListener
+    // directo en cada botón (todavía no existen cuando corre este script).
+    // En su lugar, escuchamos los clics en el contenedor completo y revisamos
+    // si el clic vino de un botón ".add-product-button".
+    document.getElementById('products-container').addEventListener('click', (e) => {
+      if (e.target.closest('.add-product-button')) {
+        pulseCart();
+      }
+    });
   </script>
 
 </body>
 </html>
-```
