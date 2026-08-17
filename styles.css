@@ -12,6 +12,7 @@ body{
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 nav{
+    position: relative; /* necesario para poder ubicar la línea del carrito DENTRO del navbar */
     background-color: #121212;
     box-shadow:3px 3px 5px rgba(0, 0, 0,0.1)
 }
@@ -56,6 +57,87 @@ nav svg{
     display: flex;
     flex: 1;
     justify-content: space-evenly;
+}
+
+/* ===================== CARRITO EN EL NAVBAR ===================== */
+
+.cart-btn{
+    position: relative;
+}
+
+.cart-icon-wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+/* el ícono del carrito es de trazo (stroke), no relleno,
+   así que aquí le ganamos a la regla general "nav svg{ fill: currentColor; }" */
+.cart-btn svg{
+    fill: none;
+}
+
+.cart-badge{
+    position: absolute;
+    top: -8px;
+    right: -9px;
+    background-color: #97fb57;
+    color: #121212;
+    font-size: 0.65rem;
+    font-weight: bold;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease;
+}
+
+/* "brinco" del número del carrito cuando se añade un producto */
+.cart-badge.bump{
+    animation: badge-bump 0.45s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes badge-bump{
+    0%{ transform: scale(1); }
+    35%{ transform: scale(1.7); }
+    100%{ transform: scale(1); }
+}
+
+/* ===================== LÍNEA VERDE DEL CARRITO ===================== */
+/* Ver explicación completa de cómo funciona en la respuesta del chat. */
+
+.cart-pulse-wrap{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden; /* recorta SOLO esta franja delgada, no afecta al resto del nav */
+    pointer-events: none;
+}
+
+.cart-pulse{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 22%;
+    background-color: #97fb57;
+    box-shadow: 0 0 8px rgba(151, 251, 87, 0.7);
+    transform: translateX(-120%); /* en reposo, queda oculta fuera de la vista a la izquierda */
+}
+
+.cart-pulse-wrap.is-active .cart-pulse{
+    animation: cart-sweep 0.7s ease-out;
+}
+
+@keyframes cart-sweep{
+    0%{ transform: translateX(-120%); }
+    100%{ transform: translateX(550%); }
 }
 
 .sidebar{
@@ -107,18 +189,19 @@ nav svg{
     color: #f6f2f2;
     margin-top: 40px;
 }
+
+/* Antes era "display:flex; flex-wrap:wrap;" con ".footer-col{flex:1; min-width:200px;}".
+   Con flex-wrap el ancho de cada columna dependía de su propio contenido, por eso se veía
+   disparejo (la columna "SYNAPSE" quedaba más angosta que "Enlaces", etc).
+   Con grid le decimos explícitamente qué proporción debe ocupar cada columna,
+   así siempre quedan parejas y centradas sin importar cuánto texto tenga cada una. */
 .footer-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 40px;
     padding: 50px 40px;
     max-width: 1200px;
     margin: 0 auto;
-}
-.footer-col{
-    flex: 1;
-    min-width: 200px;
 }
 .footer-col h3{
     color: #97fb57;
@@ -167,6 +250,19 @@ nav svg{
 }
 .nav-left, .nav-center, .nav-right{
     width: auto;
+}
+
+/* En pantallas más chicas, 4 columnas parejas ya no caben bien,
+   así que bajamos a 2 columnas y luego a 1 sola. */
+@media(max-width: 900px){
+    .footer-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media(max-width: 550px){
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -251,7 +347,6 @@ nav svg{
     height: 45px;
     object-fit: contain;
 }
-
 /*
 Sección de productos, sus botones filtro, Titular y descripcion.
 */
@@ -348,7 +443,7 @@ Sección de productos, sus botones filtro, Titular y descripcion.
     margin-bottom: 8px;
 }
 
-/*
+
 .product-price {
     color: #97fb57;
     background-color: #121212;
@@ -357,7 +452,7 @@ Sección de productos, sus botones filtro, Titular y descripcion.
     border-radius: 8px;
     font-weight: bold;
     margin-bottom: 12px;
-}*/
+}
 
 .product-description{
     font-size: 0.95rem;
