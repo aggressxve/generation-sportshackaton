@@ -1,14 +1,85 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SportZone</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+  <nav>
+    <ul class="sidebar">
+      <li onclick="hideSidebar()">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
+            <path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/>
+          </svg>
+        </a>
+      </li>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Colección</a></li>
+      <li><a href="#">Destacados</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+
+    <div class="nav-container">
+  <ul class="nav-left">
+    <li>
+      <a href="#">
+        <img src="LOGO.png" alt="SYNAPSE">
+      </a>
+    </li>
+  </ul>
+
+      <ul class="nav-center">
+        <li class="hideOnMobile"><a href="#">Inicio</a></li>
+        <li class="hideOnMobile"><a href="#">Colección</a></li>
+        <li class="hideOnMobile"><a href="#">Destacados</a></li>
+        <li class="hideOnMobile"><a href="#nosotros">Nosotros</a></li>
+        <li class="hideOnMobile"><a href="#">Contacto</a></li>
+      </ul>
+
+      <ul class="nav-right">
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
+              <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+<section id="nosotros" class="nosotros">
+  <div class="nosotros-container">
+    <div class="nosotros-img">
+      <img src="https://images.unsplash.com/photo-1637666532931-b835a227b955?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Equipo SportZone">
+    </div>
+
+    <div class="nosotros-texto">
+      <h2>Sobre Nosotros</h2>
+
+      <p class="nosotros-subtitulo">
+        Vive el deporte a tu manera
+      </p>
+
+      <p>
+        Creemos que el deporte es diferente para cada persona. Para algunos es un reto, para otros una forma de desconectar, sentirse bien o compartir momentos.
+      </p>
+
+      <p>
+        Por eso <strong>SYNAPSE</strong> es un espacio donde puedes encontrar productos para diferentes disciplinas, estilos y necesidades. Seleccionamos opciones que combinan calidad, funcionalidad y estilo para acompañarte en cada desafío.
+      </p>
+    </div>
+  </div>
+</section>
     <!-- Navbar -->
     <!-- Carrusel -->
     <!-- Productos -->
@@ -33,4 +104,62 @@
     <script src="products.js"></script>
 </body>
 
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>SYNAPSE</h3>
+        <p>Tu tienda de artículos deportivos: ropa, calzado y equipo para llevar tu rendimiento al siguiente nivel.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Colección</a></li>
+          <li><a href="#">Destacados</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+
+      
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>Av. Deportiva 123, CDMX</li>
+          <li>Tel: 55 1234 5678</li>
+          <li>contacto@SYNAPSE.com</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <div class="footer-social">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 SYNAPSE Sport store. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+  </script>
+
+</body>
 </html>
+```
