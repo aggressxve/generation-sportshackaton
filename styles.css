@@ -250,7 +250,7 @@ nav svg{
     width: 180px;
     height: 45px;
     object-fit: contain;
-
+}
 /*
 Sección de productos, sus botones filtro, Titular y descripcion.
 */
@@ -347,7 +347,7 @@ Sección de productos, sus botones filtro, Titular y descripcion.
     margin-bottom: 8px;
 }
 
-/*
+
 .product-price {
     color: #97fb57;
     background-color: #121212;
