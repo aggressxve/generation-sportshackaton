@@ -7,7 +7,6 @@
     <title>SportZone</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
   <nav>
@@ -76,9 +75,76 @@
     </div>
   </nav>
 
+<!-- Carrusel -->
+  <section class="hero-carousel">
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1600&auto=format&fit=crop" alt="Colección de running">
+      <div class="hero-overlay">
+        <h2>Eleva tu juego</h2>
+        <p>Equipo de running diseñado para superar tus límites.</p>
+        <a href="#" class="hero-btn">Ver colección</a>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1600&auto=format&fit=crop" alt="Entrenamiento gym">
+      <div class="hero-overlay">
+        <h2>Fuerza sin límites</h2>
+        <p>Todo lo que necesitas para tu rutina de gym.</p>
+        <a href="#" class="hero-btn">Ver colección</a>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1600&auto=format&fit=crop" alt="Fútbol">
+    <div class="hero-overlay">
+  <h2>Domina la cancha</h2>
+  <p>Calzado y equipo para llevar tu juego al siguiente nivel.</p>
+  <a href="#" class="hero-btn">Ver colección</a>
+  </div>
+  </div>
+
+  <button class="carousel-arrow prev" onclick="prevSlide()">&#10094;</button>
+  <button class="carousel-arrow next" onclick="nextSlide()">&#10095;</button>
+
+  <div class="carousel-dots"></div>
+  </section>
 
     <!-- Navbar -->
     <!-- Carrusel -->
+  <section class="hero-carousel">
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1600&auto=format&fit=crop" alt="Colección de running">
+      <div class="hero-overlay">
+        <h2>Eleva tu juego</h2>
+        <p>Equipo de running diseñado para superar tus límites.</p>
+        <a href="#" class="hero-btn">Ver colección</a>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1600&auto=format&fit=crop" alt="Entrenamiento gym">
+      <div class="hero-overlay">
+        <h2>Fuerza sin límites</h2>
+        <p>Todo lo que necesitas para tu rutina de gym.</p>
+        <a href="#" class="hero-btn">Ver colección</a>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1600&auto=format&fit=crop" alt="Fútbol">
+    <div class="hero-overlay">
+  <h2>Domina la cancha</h2>
+  <p>Calzado y equipo para llevar tu juego al siguiente nivel.</p>
+  <a href="#" class="hero-btn">Ver colección</a>
+  </div>
+  </div>
+
+  <button class="carousel-arrow prev" onclick="prevSlide()">&#10094;</button>
+  <button class="carousel-arrow next" onclick="nextSlide()">&#10095;</button>
+
+  <div class="carousel-dots"></div>
+  </section>
     <!-- Productos -->
     <section class="products-section">
         <div class="products-header">
@@ -122,60 +188,58 @@
 
     <!-- Footer -->
 
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>SYNAPSE</h3>
+          <p>Tu tienda de artículos deportivos: ropa, calzado y equipo para llevar tu rendimiento al siguiente nivel.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Enlaces</h4>
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Colección</a></li>
+            <li><a href="#">Destacados</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+
+        
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>Av. Deportiva 123, CDMX</li>
+            <li>Tel: 55 1234 5678</li>
+            <li>contacto@SYNAPSE.com</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <div class="footer-social">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SYNAPSE Sport store. Todos los derechos reservados.</p>
+      </div>
+    </footer>
 
     <script src="index.js"></script>
     <script src="products.js"></script>
-</body>
-
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3>SYNAPSE</h3>
-        <p>Tu tienda de artículos deportivos: ropa, calzado y equipo para llevar tu rendimiento al siguiente nivel.</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Enlaces</h4>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Colección</a></li>
-          <li><a href="#">Destacados</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </div>
-
-      
-
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li>Av. Deportiva 123, CDMX</li>
-          <li>Tel: 55 1234 5678</li>
-          <li>contacto@SYNAPSE.com</li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Síguenos</h4>
-        <div class="footer-social">
-          <a href="#">Facebook</a>
-          <a href="#">Instagram</a>
-          <a href="#">Twitter</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 SYNAPSE Sport store. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <script>
-    function showSidebar(){
-      const sidebar = document.querySelector('.sidebar')
-      sidebar.style.display = 'flex'
-    }
+    <script src="carrusel.js"></script>
+    <script>
+      function showSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'flex'
+      }
 
     function hideSidebar(){
       const sidebar = document.querySelector('.sidebar')
