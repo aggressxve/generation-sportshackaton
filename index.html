@@ -111,41 +111,29 @@
   </section>
 
     <!-- Navbar -->
-    <!-- Carrusel -->
-  <section class="hero-carousel">
-    <div class="hero-slide active">
-      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1600&auto=format&fit=crop" alt="Colección de running">
-      <div class="hero-overlay">
-        <h2>Eleva tu juego</h2>
-        <p>Equipo de running diseñado para superar tus límites.</p>
-        <a href="#" class="hero-btn">Ver colección</a>
-      </div>
+    <div class="cart-sidebar-overlay" id="cartSidebarOverlay"></div>
+
+<aside class="cart-sidebar-panel" id="cartSidebar" aria-hidden="true">
+    <div class="cart-sidebar-header">
+        <h2>Tu carrito</h2>
+        <button type="button" class="cart-sidebar-close" id="closeCartSidebar">
+            ×
+        </button>
     </div>
 
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1600&auto=format&fit=crop" alt="Entrenamiento gym">
-      <div class="hero-overlay">
-        <h2>Fuerza sin límites</h2>
-        <p>Todo lo que necesitas para tu rutina de gym.</p>
-        <a href="#" class="hero-btn">Ver colección</a>
-      </div>
+    <div class="cart-sidebar-items" id="cartSidebarItems">
+    <!-- Aquí se pintan los productos con JS -->
     </div>
 
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1600&auto=format&fit=crop" alt="Fútbol">
-    <div class="hero-overlay">
-  <h2>Domina la cancha</h2>
-  <p>Calzado y equipo para llevar tu juego al siguiente nivel.</p>
-  <a href="#" class="hero-btn">Ver colección</a>
+  <div class="cart-sidebar-footer">
+    <p>Total: <span id="cartSidebarTotal">$0</span></p>
+    <button type="button" class="clear-cart-button" id="clearCartButton">
+      Vaciar carrito
+    </button>
   </div>
-  </div>
-
-  <button class="carousel-arrow prev" onclick="prevSlide()">&#10094;</button>
-  <button class="carousel-arrow next" onclick="nextSlide()">&#10095;</button>
-
-  <div class="carousel-dots"></div>
-  </section>
+</aside>
     <!-- Productos -->
+    <div id="alert-container" class="cart-alert-container"></div>
     <section class="products-section">
         <div class="products-header">
             <h2>Productos deportivos</h2>
@@ -233,8 +221,8 @@
     </footer>
 
     <script src="index.js"></script>
-    <script src="products.js"></script>
     <script src="carrusel.js"></script>
+    <script src="products.js"></script>
     <script>
       function showSidebar(){
         const sidebar = document.querySelector('.sidebar')
@@ -250,12 +238,15 @@
 
     const cartPulseWrap = document.getElementById('cartPulseWrap');
     const cartBadge = document.getElementById('cartBadge');
-    let cartCount = 0;
+    //let cartCount = 0;
 
     // Dispara la animación de la línea y hace "brincar" el número del carrito.
     function pulseCart(){
-      cartCount++;
-      cartBadge.textContent = cartCount;
+        if (cartPulseWrap === null || cartBadge === null) {
+            return;
+        }
+      //cartCount++;
+      //cartBadge.textContent = cartCount;
 
       // quitar la clase, forzar reflow y volver a ponerla permite repetir
       // la animación aunque se añadan varios productos muy seguido
@@ -273,11 +264,11 @@
     // directo en cada botón (todavía no existen cuando corre este script).
     // En su lugar, escuchamos los clics en el contenedor completo y revisamos
     // si el clic vino de un botón ".add-product-button".
-    document.getElementById('products-container').addEventListener('click', (e) => {
-      if (e.target.closest('.add-product-button')) {
-        pulseCart();
-      }
-    });
+    //document.getElementById('products-container').addEventListener('click', (e) => {
+      //if (e.target.closest('.add-product-button')) {
+        //pulseCart();
+      //}
+    //});
   </script>
 
 </body>
