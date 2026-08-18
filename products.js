@@ -157,13 +157,24 @@ for (let i = 0; i < filterButtons.length; i++) {
 }
 
 productsContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("add-product-button")) {
-        const productId = Number(event.target.dataset.id);
+    const addButton = event.target.closest(".add-product-button");
 
-        const selectedProduct = products.find((product) => {
-            return product.id === productId;
-        });
-
-        console.log("Producto agregado:", selectedProduct);
+    if (addButton === null) {
+        return;
     }
+
+    const productId = Number(addButton.dataset.id);
+
+    const selectedProduct = products.find((product) => {
+        return product.id === productId;
+    });
+
+    if (selectedProduct === undefined) {
+        console.log("Producto no encontrado:", productId);
+        return;
+    }
+
+    addToCart(selectedProduct);
+
+    console.log("Producto agregado:", selectedProduct);
 });
