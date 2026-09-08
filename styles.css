@@ -12,7 +12,8 @@ body{
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 nav{
-    position: relative; /* necesario para poder ubicar la línea del carrito DENTRO del navbar */
+    position: relative; 
+    z-index: 1000;
     background-color: #121212;
     box-shadow:3px 3px 5px rgba(0, 0, 0,0.1)
 }
@@ -156,6 +157,7 @@ nav svg{
   right: 0;
   height: 100vh;
   width: 250px;
+  z-index: 10;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
@@ -193,18 +195,12 @@ nav svg{
   }
 }
 
-
 .footer{
     background-color: #121212;
     color: #f6f2f2;
     margin-top: 40px;
 }
 
-/* Antes era "display:flex; flex-wrap:wrap;" con ".footer-col{flex:1; min-width:200px;}".
-   Con flex-wrap el ancho de cada columna dependía de su propio contenido, por eso se veía
-   disparejo (la columna "SYNAPSE" quedaba más angosta que "Enlaces", etc).
-   Con grid le decimos explícitamente qué proporción debe ocupar cada columna,
-   así siempre quedan parejas y centradas sin importar cuánto texto tenga cada una. */
 .footer-container{
     display: grid;
     grid-template-columns: 1.3fr 1fr 1fr 1fr;
